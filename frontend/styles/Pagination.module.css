@@ -1,0 +1,45 @@
+    .paginationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* สอดคล้องกับ Home.module.css */
+    padding: 10px 0; /* เพิ่ม padding เล็กน้อย */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* สอดคล้องกับ font อื่นๆ */
+    }
+
+    .button {
+    margin: 0 5px;
+    padding: 8px 14px; /* ปรับ padding ให้ดูดีขึ้น */
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #fff;
+    color: #337ab7; /* สีน้ำเงินสำหรับ text */
+    border-radius: 4px; /* เพิ่ม border-radius */
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    font-weight: 500;
+    }
+
+    .button:hover:not(:disabled) {
+    background-color: #e9ecef; /* สีพื้นหลังอ่อนๆ เมื่อ hover */
+    border-color: #bbb;
+    }
+
+    .button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    color: #6c757d; /* สีเทาสำหรับ text เมื่อ disabled */
+    border-color: #e0e0e0;
+    }
+
+    .activeButton {
+    background-color: #007bff; /* สีน้ำเงินสำหรับ active page (สอดคล้องกับ Home.module.css .addButton) */
+    color: white;
+    border-color: #007bff;
+    font-weight: bold;
+    }
+
+    .activeButton:hover {
+    background-color: #0056b3; /* สีเข้มขึ้นเมื่อ hover */
+    border-color: #0056b3;
+    }
+

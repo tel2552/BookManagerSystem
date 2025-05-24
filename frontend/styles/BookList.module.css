@@ -1,0 +1,79 @@
+    .list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Reset default ul margin */
+    }
+
+    .listItem {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 20px 0; /* เพิ่มระยะห่างระหว่าง item */
+    padding: 20px 25px; /* ปรับ padding ให้ดูสมส่วน */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* ปรับ shadow ให้ดูนุ่มนวลขึ้น */
+    background-color: #fff;
+    transition: box-shadow 0.2s ease-in-out;
+    }
+
+    .listItem:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .bookTitle {
+    margin-top: 0;
+    margin-bottom: 10px; /* เพิ่มระยะห่าง */
+    color: #2c3e50; /* สีเข้มขึ้นเล็กน้อย */
+    font-size: 1.4rem; /* ปรับขนาด font */
+    }
+
+    .bookDetail {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.95rem;
+    }
+
+    .actionsContainer {
+    margin-top: 20px; /* เพิ่มระยะห่าง */
+    text-align: right;
+    display: flex; /* ใช้ flexbox เพื่อจัดปุ่ม */
+    justify-content: flex-end; /* จัดปุ่มไปทางขวา */
+    gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+    }
+
+    .actionButton {
+    padding: 8px 15px; /* ปรับ padding */
+    border: none;
+    border-radius: 5px; /* สอดคล้องกับปุ่มอื่นๆ */
+    cursor: pointer;
+    font-size: 0.9rem; /* ปรับขนาด font */
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-decoration: none; /* สำหรับ Link */
+    display: inline-flex; /* สำหรับ Link */
+    align-items: center; /* สำหรับ Link */
+    justify-content: center; /* สำหรับ Link */
+    }
+
+    .editButton {
+    background-color: #ffc107; /* สีเหลืองสำหรับ Edit */
+    color: #212529;
+    }
+
+    .editButton:hover {
+    background-color: #e0a800;
+    }
+
+    .deleteButton {
+    background-color: #dc3545; /* สีแดงสำหรับ Delete */
+    color: white;
+    }
+
+    .deleteButton:hover {
+    background-color: #c82333;
+    }
+
+    .noBooksMessage {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.1em;
+    color: #666;
+    }

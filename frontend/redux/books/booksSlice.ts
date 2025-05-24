@@ -26,6 +26,7 @@ const booksSlice = createSlice({
       state.error = null;
     },
     fetchBooksSuccess(state, action: PayloadAction<FetchBooksSuccessPayload>) {
+      console.log('Slice fetchBooksSuccess payload:', action.payload);
       state.loading = false;
       state.list = action.payload.books;
       if (action.payload.total !== undefined) {
@@ -50,11 +51,8 @@ const booksSlice = createSlice({
         state.list = [];
       }
       state.loading = false;
-      // การ unshift เหมาะสำหรับการแสดงผลทันที แต่การ re-fetch จาก saga จะทำให้ข้อมูลตรงกับ server
-      // คุณอาจจะเลือกที่จะ unshift หรือรอ re-fetch อย่างเดียวก็ได้
-      // ถ้า unshift แล้ว re-fetch อาจจะเห็นการกระพริบเล็กน้อยถ้าข้อมูลไม่ตรงกัน
-      // เพื่อความง่าย อาจจะให้ re-fetch เป็นตัวหลักในการอัปเดต list หลัง add
-      // state.list.unshift(action.payload); // <--- พิจารณาว่าจะยังคง unshift หรือไม่
+      // unshift เหมาะสำหรับการแสดงผลทันที แต่การ re-fetch จาก saga จะทำให้ข้อมูลตรงกับ server
+      // state.list.unshift(action.payload);
 
       if (typeof state.total === 'number') {
         state.total += 1;

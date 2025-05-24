@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/Pagination.module.css'; // Import CSS Module
 
 interface PaginationProps {
   currentPage: number;
@@ -20,39 +21,12 @@ const Pagination: React.FC<PaginationProps> = ({
     pageNumbers.push(i);
   }
 
-  // Basic styling - you'll want to improve this
-  const paginationStyle: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: '20px',
-  };
-
-  const buttonStyle: React.CSSProperties = {
-    margin: '0 5px',
-    padding: '8px 12px',
-    border: '1px solid #ddd',
-    cursor: 'pointer',
-    backgroundColor: '#fff',
-  };
-
-  const activeButtonStyle: React.CSSProperties = {
-    ...buttonStyle,
-    backgroundColor: '#007bff',
-    color: 'white',
-    borderColor: '#007bff',
-  };
-
   return (
-    <div style={paginationStyle}>
+    <div className={styles.paginationContainer}>
       <button 
         onClick={() => onPageChange(currentPage - 1)} 
         disabled={currentPage === 1} 
-        style={{
-          ...buttonStyle, 
-          cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-          opacity: currentPage === 1 ? 0.6 : 1
-        }}
+        className={`${styles.button} ${styles.prevNextButton}`}
       >
         Previous
       </button>
@@ -60,7 +34,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <button 
           key={number} 
           onClick={() => onPageChange(number)} 
-          style={currentPage === number ? activeButtonStyle : buttonStyle}
+          className={`${styles.button} ${currentPage === number ? styles.activeButton : ''}`}
         >
           {number}
         </button>
@@ -68,11 +42,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <button 
         onClick={() => onPageChange(currentPage + 1)} 
         disabled={currentPage === totalPages} 
-        style={{
-          ...buttonStyle, 
-          cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-          opacity: currentPage === totalPages ? 0.6 : 1
-        }}
+        className={`${styles.button} ${styles.prevNextButton}`}
       >
         Next
       </button>

@@ -1,0 +1,29 @@
+    .loaderContainer {
+    display: flex;
+    flex-direction: column; /* จัดเรียง spinner และ text ในแนวตั้ง */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100px; /* ให้มีพื้นที่สำหรับ loader */
+    }
+
+    .spinner {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px; /* ระยะห่างระหว่าง spinner กับ text */
+    }
+
+    .loadingText {
+    font-size: 1.1em; /* ปรับขนาด font ให้สอดคล้อง */
+    color: #555;
+    font-weight: 500;
+    }
+
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    }

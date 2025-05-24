@@ -7,12 +7,22 @@ import { Book } from '@prisma/client'; // Import Model from Book prisma
 export class BooksService {
   constructor(private prisma: PrismaService) {}
 
-  async findAll(page = 1, limit = 10) {
-    return this.prisma.book.findMany({
-      skip: (page - 1) * Number(limit),
-      take: Number(limit),
+  async findAll(page = 1, limit = 10): Promise<{ books: Book[], totalItems: number }> {
+    const skip = (page - 1) * limit;
+    const take = limit;
+
+    const books = await this.prisma.book.findMany({
+      skip: skip,
+      take: take,
       orderBy: { createdAt: 'desc' },
     });
+
+    const totalItems = await this.prisma.book.count();
+
+    return {
+      books,
+      totalItems,
+    };
   }
 
   async findOne(id: number): Promise<Book | null> {

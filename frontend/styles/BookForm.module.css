@@ -1,0 +1,60 @@
+/* c:\Users\uSeR\OneDrive\เดสก์ท็อป\codeงาน\Book Manger System by tanet\frontend\styles\BookForm.module.css */
+    .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* ระยะห่างระหว่าง form groups */
+    margin-top: 20px; /* ระยะห่างจาก heading หรือ element ก่อนหน้า */
+    }
+
+    .formGroup {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .formGroup label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+    }
+
+    .formGroup input[type="text"],
+    .formGroup input[type="number"] {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+    .formGroup input[type="text"]:focus,
+    .formGroup input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+    }
+
+    .submitButton {
+    padding: 12px 20px;
+    background-color: #28a745; /* สีเขียวสำหรับ Add/Update (คล้าย primary action) */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    align-self: flex-start; /* จัดปุ่มไปทางซ้าย ถ้าต้องการ */
+    /* หรือ align-self: center; ถ้าต้องการจัดกลาง */
+    margin-top: 10px; /* ระยะห่างด้านบนของปุ่ม */
+    }
+
+    .submitButton:hover:not(:disabled) {
+    background-color: #218838;
+    }
+
+    .submitButton:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.7;
+    }

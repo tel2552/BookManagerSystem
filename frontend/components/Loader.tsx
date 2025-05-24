@@ -1,19 +1,11 @@
 import React from 'react';
+import styles from '../styles/Loader.module.css'; // Import CSS Module
 
 const Loader: React.FC = () => {
-  // Basic styling for the loader - you can customize this extensively
-  const loaderStyle: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '20px',
-    fontSize: '1.2em',
-    color: '#555',
-  };
-
   return (
-    <div style={loaderStyle}>
-      <p>Loading...</p>
+    <div className={styles.loaderContainer}>
+      <div className={styles.spinner}></div>
+      <p className={styles.loadingText}>Loading...</p>
     </div>
   );
 };

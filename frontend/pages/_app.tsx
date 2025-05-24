@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux';
-import store from '../redux/store'; // Import a Redux store ของคุณ
-// import '../styles/globals.css'; // หากคุณมี global styles
+import store from '../redux/store';
+import '../styles/globals.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

@@ -1,5 +1,6 @@
 // frontend/components/BookForm.tsx
 import React, { useState, useEffect } from 'react';
+import styles from '../styles/BookForm.module.css'; // Import CSS Module
 // สมมติ BookFormData คือ type ของข้อมูลใน form
 interface BookFormData {
   title: string;
@@ -37,20 +38,20 @@ const BookForm: React.FC<BookFormProps> = ({ initialData, onSubmit, isSubmitting
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.formGroup}>
         <label htmlFor="title">Title:</label>
         <input type="text" id="title" name="title" value={formData.title} onChange={handleChange} required />
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="author">Author:</label>
         <input type="text" id="author" name="author" value={formData.author} onChange={handleChange} required />
       </div>
-      <div>
+      <div className={styles.formGroup}>
         <label htmlFor="publishedYear">Published Year:</label>
         <input type="number" id="publishedYear" name="publishedYear" value={formData.publishedYear} onChange={handleChange} required />
       </div>
-      <button type="submit" disabled={isSubmitting}>
+      <button type="submit" disabled={isSubmitting} className={styles.submitButton}>
         {isSubmitting ? 'Submitting...' : (initialData ? 'Update Book' : 'Add Book')}
       </button>
     </form>

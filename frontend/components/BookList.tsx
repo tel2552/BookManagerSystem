@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../redux/store';
 import { deleteBookRequest } from '../redux/books/booksSlice';
 import ConfirmDialog from './ConfirmDialog'; // Ensure this import is present and correct
+import styles from '../styles/BookList.module.css'; // Import CSS Module
 
 // กำหนด Type สำหรับ Book (ควรตรงกับ backend และ Redux state)
 export interface Book {
@@ -42,50 +43,31 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
   };
 
   if (!books || books.length === 0) {
-    return <p>No books available.</p>;
+    return <p className={styles.noBooksMessage}>No books available to display.</p>;
   }
 
   return (
     <>
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
+      <ul className={styles.list}>
         {books.map((book) => (
-          <li 
-            key={book.id} 
-            style={{ 
-              border: '1px solid #e0e0e0', 
-              borderRadius: '8px',
-              margin: '15px 0', 
-              padding: '15px 20px',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-              backgroundColor: '#fff'
-            }}
-          >
-            <h3 style={{ marginTop: 0, marginBottom: '8px', color: '#333' }}>{book.title}</h3>
-            <p style={{ margin: '4px 0', color: '#555' }}>Author: {book.author}</p>
-            <p style={{ margin: '4px 0', color: '#555' }}>Published Year: {book.publishedYear}</p>
-            <div style={{ marginTop: '15px', textAlign: 'right' }}>
+          <li key={book.id} className={styles.listItem}>
+            <h3 className={styles.bookTitle}>{book.title}</h3>
+            <p className={styles.bookDetail}>Author: {book.author}</p>
+            <p className={styles.bookDetail}>Published Year: {book.publishedYear}</p>
+            <div className={styles.actionsContainer}>
               <Link href={`/edit/${book.id}`} passHref>
                 <button 
-                  style={{ 
-                    marginRight: '10px', 
-                    padding: '8px 12px', 
-                    backgroundColor: '#ffc107', 
-                    color: '#212529', 
-                    border: 'none', 
-                    borderRadius: '4px', 
-                    cursor: 'pointer' 
-                  }}>Edit</button>
+                  className={`${styles.actionButton} ${styles.editButton}`}
+                >
+                  Edit
+                </button>
               </Link>
               <button 
                 onClick={() => openConfirmDialog(book)} 
-                style={{ 
-                  padding: '8px 12px', 
-                  backgroundColor: '#dc3545', 
-                  color: 'white', 
-                  border: 'none', 
-                  borderRadius: '4px', 
-                  cursor: 'pointer' 
-                }}>Delete</button>
+                className={`${styles.actionButton} ${styles.deleteButton}`}
+              >
+                Delete
+              </button>
             </div>
           </li>
         ))}

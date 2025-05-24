@@ -7,11 +7,20 @@ export class BooksController {
 constructor(private readonly booksService: BooksService) {}
 
 @Get()
-findAll(
+async findAll(
     @Query('page', ParseIntPipe) page = 1,
     @Query('limit', ParseIntPipe) limit = 10, // Consider using new ParseIntPipe({ optional: true }) if these are optional
 ) {
-    return this.booksService.findAll(page, limit);
+    const { books, totalItems } = await this.booksService.findAll(page, limit);
+    const totalPages = Math.ceil(totalItems / limit);
+
+    return {
+        books, // หรือ data: books ตามที่ frontend คาดหวัง
+        currentPage: page,
+        totalPages,
+        totalItems,
+        limit,
+    };
 }
 
 // Add this method to handle fetching a single book by ID

@@ -1,0 +1,65 @@
+.pageContainer {
+    max-width: 700px; /* ฟอร์มอาจต้องการความกว้างน้อยกว่าหน้ารายการ */
+    margin: 60px auto; /* สอดคล้องกับ Home.module.css .container */
+    padding: 40px; /* สอดคล้องกับ Home.module.css .container */
+    background-color: rgba(255, 255, 255, 0.9); /* สอดคล้อง */
+    border-radius: 10px; /* สอดคล้อง */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* สอดคล้อง */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* สอดคล้อง */
+}
+
+.pageHeading {
+    text-align: center;
+    color: #333; /* สอดคล้องกับ Home.module.css .header h1 */
+    margin-bottom: 30px;
+    font-size: 2rem; /* อาจจะเล็กกว่า h1 ของหน้าหลักเล็กน้อย หรือปรับให้เท่ากัน */
+}
+
+.backButton {
+    padding: 12px 20px; /* ขนาดใกล้เคียงกับ .addButton ใน Home.module.css */
+    background-color: #6c757d; /* สีเทาสำหรับ action รอง */
+    color: white;
+    border: none;
+    border-radius: 5px; /* สอดคล้อง */
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem; /* สอดคล้อง */
+    transition: background-color 0.2s ease;
+    display: inline-block;
+    margin-bottom: 25px; /* ระยะห่างด้านล่างของปุ่ม Back */
+}
+
+.backButton:hover {
+    background-color: #5a6268; /* สีเข้มขึ้นเมื่อ hover */
+}
+
+.statusMessage {
+    text-align: center;
+    color: #555;
+    font-size: 1.1rem;
+    padding: 20px 0;
+    margin-top: 15px;
+}
+
+.errorMessage {
+    text-align: center;
+    color: #dc3545; /* สีแดงสำหรับ error */
+    font-size: 1.1rem;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #f8d7da; /* พื้นหลังสำหรับ error message คล้าย Home.module.css */
+    border: 1px solid #f5c6cb; /* ขอบสำหรับ error message คล้าย Home.module.css */
+    border-radius: 4px; /* สอดคล้อง */
+}
+
+.loaderWrapper {
+    text-align: center;
+    margin-top: 25px;
+    padding: 20px 0;
+}
+
+.loaderText {
+    color: #555;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
